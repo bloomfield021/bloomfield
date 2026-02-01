@@ -9,7 +9,7 @@ import ClientAccess from './components/Clientaccess';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop'; // Import the new utility
-
+import Scrollup from "./components/scrolluparrow";
 function App() {
   return (
     <Router>
@@ -20,6 +20,7 @@ function App() {
       
       <Whatsapp />
       <Navigation />
+      <Scrollup />
       
       <Routes>
         <Route path="/" element={<Homepage />} />
