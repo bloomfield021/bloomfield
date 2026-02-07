@@ -16,11 +16,12 @@ function App() {
       {/* IMPORTANT: ScrollToTop must be inside Router 
           but outside Routes to work correctly. 
       */}
-      <ScrollToTop /> 
+     
       
       <Whatsapp />
       <Navigation />
       <Scrollup />
+       <ScrollToTop /> 
       
       <Routes>
         <Route path="/" element={<Homepage />} />

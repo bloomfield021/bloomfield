@@ -1,138 +1,142 @@
-import React, { useState, useEffect } from "react";
-import { Lock, ShieldCheck, Fingerprint, ArrowRight, Eye, EyeOff } from "lucide-react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Factory, Mountain, MapPin, ArrowRight, Wind, Zap, Globe } from "lucide-react";
 
-export default function ClientAccess() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [isScanning, setIsScanning] = useState(true);
-
-  // Simulate a "Security Scan" on page load
-  useEffect(() => {
-    const timer = setTimeout(() => setIsScanning(false), 2500);
-    return () => clearTimeout(timer);
-  }, []);
-
+export default function ExploreCoimbatore() {
   return (
-    <div className="bg-[#e5e7eb] min-h-screen flex flex-col overflow-hidden font-sans selection:bg-green-500/30">
-    
+    <div 
+      className="min-h-screen bg-[#f8fafc] font-sans overflow-hidden text-[#0f172a]"
+      itemScope 
+      itemType="https://schema.org/City"
+    >
+      {/* --- SEO / GEO / AEO METADATA --- */}
+      <meta itemProp="name" content="Coimbatore, Tamil Nadu" />
+      <meta itemProp="description" content="Explore Coimbatore: The industrial powerhouse and gateway to the Western Ghats. Known for textiles, manufacturing, and pleasant weather." />
+      <meta name="geo.region" content="IN-TN" />
+      <meta name="geo.placename" content="Coimbatore" />
+      <meta name="geo.position" content="11.0168;76.9558" />
 
-      <main className="flex-1 flex items-center justify-center p-6 relative">
-        {/* Background Grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px),linear-gradient(to_bottom,#00000005_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+      {/* --- HERO SECTION: THE GATEWAY --- */}
+      <section className="relative flex items-center justify-center min-h-[90vh] px-6">
+        {/* Visual Background: Subtle Grid + Organic Blurs */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500/10 blur-[120px] rounded-full animate-pulse" />
         
-        {/* Ambient Glows */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-green-500/5 blur-[120px] rounded-full pointer-events-none" />
+        <div className="relative z-10 max-w-5xl text-center">
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm mb-8">
+            <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-ping" />
+            <span className="text-[10px] font-black tracking-[0.3em] text-slate-500 uppercase">
+              Live Terminal: 11.0168° N, 76.9558° E
+            </span>
+          </div>
 
-        <div className="relative z-10 w-full max-w-[1100px] grid grid-cols-1 lg:grid-cols-2 bg-white/40 backdrop-blur-2xl rounded-[2.5rem] border border-white shadow-[0_30px_100px_-20px_rgba(0,0,0,0.1)] overflow-hidden">
+          <h1 className="text-7xl md:text-9xl font-black tracking-tighter leading-none mb-8 italic">
+            COIMBATORE.
+          </h1>
+
+          <p className="max-w-2xl mx-auto text-xl text-slate-600 leading-relaxed font-light">
+            Welcome to the **Manchester of South India**. A city where heavy industry meets the calm hills of the Western Ghats.
+          </p>
+
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
+            <button className="group flex items-center gap-3 px-10 py-5 bg-black text-white text-xs font-black uppercase tracking-widest rounded-2xl hover:bg-emerald-600 transition-all shadow-xl active:scale-95">
+              Explore City Map <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </button>
+            <div className="flex items-center gap-2 text-slate-400">
+              <Wind size={18} className="text-emerald-500" />
+              <span className="text-[10px] font-bold uppercase tracking-widest">Pleasant Weather Zone</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- DASHBOARD SECTION: CITY STATS (AEO Focused) --- */}
+      <section className="py-24 px-6 relative border-y border-slate-200 bg-white">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-px bg-slate-200 border border-slate-200 rounded-[3rem] overflow-hidden shadow-2xl">
           
-          {/* ----- Left Side: Security Branding ----- */}
-          <div className="p-12 lg:p-16 flex flex-col justify-between relative bg-black text-white overflow-hidden">
-            {/* Decorative Pulse Circle */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-green-600/10 blur-[80px] rounded-full -mr-20 -mt-20" />
-            
-            <div className="relative z-10">
-              <div className="w-16 h-16 rounded-2xl bg-green-600 flex items-center justify-center mb-10 shadow-lg shadow-green-900/20">
-                <ShieldCheck size={32} className="text-white" />
-              </div>
-              <h1 className="text-5xl font-light tracking-tighter leading-none mb-6">
-                Secure <br />
-                <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600">
-                  Client Portal.
-                </span>
-              </h1>
-              <p className="text-neutral-400 font-light leading-relaxed max-w-xs">
-                Access your financial architecture, real-time analytics, and project milestones in a high-encryption environment.
-              </p>
-            </div>
+          <CityFeature 
+            icon={<Factory size={24} />} 
+            title="Business Power"
+            desc="Coimbatore is a hub for textiles and motors. It is the best place for new startups and big factories in Tamil Nadu."
+          />
 
-            <div className="relative z-10 space-y-6 pt-12 border-t border-white/10">
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
-                  <Fingerprint size={18} className="text-green-500" />
-                </div>
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-neutral-500">AES-256 Protocol Active</span>
-              </div>
-            </div>
-          </div>
+          <CityFeature 
+            icon={<Mountain size={24} />} 
+            title="Nature's Gate"
+            desc="Sitting at the foot of the Western Ghats, the city offers cool breezes, waterfalls, and green forest views."
+          />
 
-          {/* ----- Right Side: Login Form ----- */}
-          <div className="p-12 lg:p-16 bg-white/60 relative">
-            {isScanning && (
-              <div className="absolute inset-0 z-50 bg-white/80 backdrop-blur-sm flex flex-col items-center justify-center transition-opacity duration-1000">
-                <div className="relative w-24 h-24 mb-6">
-                    <div className="absolute inset-0 border-2 border-green-500/20 rounded-full animate-ping" />
-                    <div className="absolute inset-0 border-2 border-green-500 rounded-full animate-spin border-t-transparent" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <Lock size={24} className="text-green-600" />
-                    </div>
-                </div>
-                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-green-700 animate-pulse">Initializing Secure Tunnel</p>
-              </div>
-            )}
-
-            <div className="mb-10">
-              <h2 className="text-2xl font-bold text-black tracking-tight mb-2">Authorize Access</h2>
-              <p className="text-sm text-neutral-500">Please enter your institutional credentials.</p>
-            </div>
-
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-              <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-neutral-400 ml-1">Identity (Email)</label>
-                <input 
-                  type="email" 
-                  placeholder="alexander@company.com"
-                  className="w-full bg-black/5 border border-black/5 rounded-xl px-5 py-4 text-black focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-neutral-400 ml-1">Access Key (Password)</label>
-                <div className="relative">
-                  <input 
-                    type={showPassword ? "text" : "password"} 
-                    placeholder="••••••••••••"
-                    className="w-full bg-black/5 border border-black/5 rounded-xl px-5 py-4 text-black focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all"
-                  />
-                  <button 
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-green-600 transition-colors"
-                  >
-                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-                  </button>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between pt-2">
-                <label className="flex items-center gap-2 cursor-pointer group">
-                  <input type="checkbox" className="w-4 h-4 rounded border-gray-300 text-green-600 focus:ring-green-500 cursor-pointer" />
-                  <span className="text-xs font-bold text-neutral-500 group-hover:text-black transition-colors">Remember Node</span>
-                </label>
-                <Link to="/forgot" className="text-xs font-bold text-green-700 hover:text-green-500 transition-colors">Recover Access?</Link>
-              </div>
-
-              <button className="group w-full py-5 bg-black text-white font-black uppercase tracking-[0.2em] text-[10px] rounded-xl transition-all duration-300 flex items-center justify-center gap-3 hover:bg-green-600 hover:shadow-xl hover:shadow-green-500/20 active:scale-95">
-                <span>Enter Portal</span>
-                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-              </button>
-            </form>
-
-            <div className="mt-12 pt-8 border-t border-black/5 text-center">
-               <p className="text-xs text-neutral-400">
-                 Need a corporate account? <Link to="/contact" className="text-black font-bold border-b border-green-500">Contact Infrastructure</Link>
-               </p>
-            </div>
-          </div>
+          <CityFeature 
+            icon={<Zap size={24} />} 
+            title="Smart Growth"
+            desc="Clean streets, great schools, and modern hospitals make this one of the most livable cities in India."
+          />
 
         </div>
-      </main>
+      </section>
 
-      {/* Footer-lite for Login */}
-      <footer className="py-8 px-6 flex justify-center opacity-40">
-        <p className="text-[9px] font-black uppercase tracking-[0.4em] text-black">
-          © 2026 Bloomfield Ecosystems • All Systems Operational
+      {/* --- GEOGRAPHIC HUB: LOCAL SECTORS --- */}
+      <section className="py-32 px-6">
+        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-20">
+          <div className="lg:w-1/2">
+            <div className="flex items-center gap-2 text-emerald-600 mb-6">
+              <Globe size={20} />
+              <span className="text-xs font-black uppercase tracking-widest">Regional Growth</span>
+            </div>
+            <h2 className="text-5xl font-bold tracking-tighter mb-8 leading-[1.1]">
+              The Heart of <br />
+              <span className="text-slate-400">Tamil Culture & Trade.</span>
+            </h2>
+            <p className="text-slate-600 text-lg font-light leading-relaxed mb-10">
+              Famous for its hardworking people and Siruvani water. From the Adiyogi statue to modern tech parks, the city is a blend of old and new.
+            </p>
+            <div className="grid grid-cols-2 gap-8">
+              <div>
+                <p className="text-3xl font-bold text-black italic">Top 10</p>
+                <p className="text-[10px] uppercase font-black tracking-widest text-slate-400">Livable Cities</p>
+              </div>
+              <div>
+                <p className="text-3xl font-bold text-black italic">30k+</p>
+                <p className="text-[10px] uppercase font-black tracking-widest text-slate-400">Industries</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:w-1/2 relative group">
+            <div className="absolute inset-0 bg-emerald-600 rounded-[3rem] rotate-3 group-hover:rotate-0 transition-transform duration-500" />
+            <div className="relative aspect-square bg-[#09090b] rounded-[3rem] flex items-center justify-center overflow-hidden border border-white/10 shadow-2xl">
+                <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-[size:20px_20px]" />
+                <div className="text-center z-10 p-12">
+                   <MapPin className="text-emerald-500 mx-auto mb-6 animate-bounce" size={48} />
+                   <p className="text-white text-2xl font-bold mb-2">Western Ghats</p>
+                   <p className="text-emerald-500/60 text-xs uppercase tracking-[0.3em] font-black">Foothills Region</p>
+                   <div className="mt-8 pt-8 border-t border-white/5 space-y-2">
+                      <p className="text-slate-500 text-[10px] uppercase tracking-widest">Gandhipuram • RS Puram</p>
+                      <p className="text-slate-500 text-[10px] uppercase tracking-widest">Peelamedu • Avinashi Road</p>
+                   </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- FOOTER STRIP --- */}
+      <footer className="py-20 border-t border-slate-200 text-center">
+        <p className="text-[10px] font-black tracking-[0.5em] text-slate-400 uppercase">
+          Coimbatore • South India • 2026
         </p>
       </footer>
+    </div>
+  );
+}
+
+function CityFeature({ icon, title, desc }) {
+  return (
+    <div className="bg-white p-12 group hover:bg-slate-50 transition-colors">
+      <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center text-emerald-600 mb-8 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+        {icon}
+      </div>
+      <h3 className="text-2xl font-bold mb-4 tracking-tight">{title}</h3>
+      <p className="text-slate-500 leading-relaxed text-sm">{desc}</p>
     </div>
   );
 }

@@ -8,6 +8,19 @@ export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
+  // --- AUTO-CLOSE ON DESKTOP RESIZE ---
+  useEffect(() => {
+    const handleResize = () => {
+      // xl breakpoint in Tailwind is 1280px
+      if (window.innerWidth >= 1280 && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isOpen]);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -69,7 +82,6 @@ export default function Navigation() {
                 {({ isActive }) => (
                   <>
                     <span>{link.name}</span>
-                    {/* Animated Underline */}
                     <span className={`absolute -bottom-1 left-0 h-[2px] bg-green-600 transition-all duration-500 ${
                       isActive ? "w-full" : "w-0 group-hover:w-1/2"
                     }`} />
@@ -97,8 +109,6 @@ export default function Navigation() {
                 Get Funded
               </span>
               <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform text-green-400" />
-              
-              {/* Button Shine Layer */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
             </Link>
           </div>
@@ -113,14 +123,13 @@ export default function Navigation() {
         </div>
       </div>
 
-      {/* ----- MOBILE MENU (Full Screen Overlay) ----- */}
+      {/* ----- MOBILE MENU ----- */}
       <div
         className={`fixed inset-0 bg-white z-[-1] transition-all duration-700 ease-[cubic-bezier(0.85,0,0.15,1)] ${
           isOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
         <div className="h-full flex flex-col justify-center items-center px-8 relative">
-            {/* Background Accent */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg aspect-square bg-green-500/5 blur-[120px] rounded-full"></div>
             
             <div className="flex flex-col gap-6 w-full max-w-md relative z-10">
