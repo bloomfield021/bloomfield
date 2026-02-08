@@ -114,17 +114,27 @@ export default function Hero() {
         </div>
 
         {/* Main Headline (AEO/GEO Optimized) */}
-        <h1 className="text-5xl md:text-6xl lg:text-6xl font-light text-[#1a1a1a] tracking-tighter leading-[0.95] mb-8">
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-[#1a1a1a] tracking-tighter leading-[0.95] mb-8">
           Get Easy <span className="font-bold">Bank Loans</span> & <br />
           <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-emerald-500 to-teal-800">
             Grow Your Business Online.
           </span>
         </h1>
 
-        {/* Subtext (Simple English) */}
-        <p className="max-w-2xl text-lg md:text-xl text-neutral-600 mb-12 leading-relaxed font-normal">
-          We help you find the best bank loans and make your brand famous on Google. Simple process, fast results, and no stress.
-        </p>
+       {/* Subtext (Simple English) with Aesthetic Highlights */}
+<p className="max-w-2xl text-lg md:text-xl text-neutral-600 mb-12 leading-relaxed font-normal">
+  We help you find the 
+  <span className="relative inline-block mx-1">
+    <span className="relative z-10 font-medium text-slate-900">best bank loans</span>
+    <span className="absolute bottom-1 left-0 w-full h-3 bg-green-500/10 -z-0 rounded-sm"></span>
+  </span> 
+  and make your 
+  <span className="relative inline-block mx-1">
+    <span className="relative z-10 font-medium text-slate-900">brand famous on Google</span>
+    <span className="absolute bottom-1 left-0 w-full h-3 bg-green-500/10 -z-0 rounded-sm"></span>
+  </span>. 
+  Simple process, fast results, and no stress.
+</p>
 
         {/* Action Buttons (Interactions) */}
         <div className="flex flex-col sm:flex-row items-center gap-5 w-full sm:w-auto">

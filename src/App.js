@@ -10,6 +10,13 @@ import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop'; // Import the new utility
 import Scrollup from "./components/scrolluparrow";
+
+
+
+import Loans from "./components/Servicespage/loans";
+import Seopage from "./components/Servicespage/seopage";
+import Marketingpage from "./components/Servicespage/marketingpage";
+import Consulting from "./components/Servicespage/consultingpage";
 function App() {
   return (
     <Router>
@@ -29,6 +36,13 @@ function App() {
         <Route path="/contact" element={<Contactus />} />
         <Route path="/services" element={<Services1 />} />
         <Route path="/login" element={<ClientAccess />} />
+
+
+
+         <Route path="/loans" element={<Loans />} />
+         <Route path="/seopage" element={<Seopage />} />
+         <Route path="/marketingpage" element={<Marketingpage />} />
+         <Route path="/consultingpage" element={<Consulting />} />
       </Routes>
       
       <Footer />
